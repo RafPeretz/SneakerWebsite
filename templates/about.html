@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+{%load static%}
+{% block title %}
+About us
+{% endblock title %}
+
+{%block content%}
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> About</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section id="about" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>The Current Culture Marketplace</h2>
+                <p class="lead"> The best sneakers of the world</p>
+                <img src="https://static.highsnobiety.com/thumbor/IfqSUor8iNJiwuf_xTWczaJDhl8=/fit-in/1200x800/smart/static.highsnobiety.com/wp-content/uploads/2019/05/20103752/best-sneaker-stores-new-york-2.jpg"
+                     alt="">
+                <p class="mt-4">Our mission is to provide access to the world’s most coveted items in the smartest way
+                    possible. Buy and sell the hottest sneakers, apparel, electronics, collectibles, trading cards and
+                    accessories.</p>
+            </div>
+</section>
+
+<!-- Work -->
+<section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <!--    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>-->
+    <hr>
+    <a href="listings.html" class="btn btn-secondary text-white btn-lg">View Our Featured Sneakers</a>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Our brands</h2>
+        <div class="row text-center">
+            {% if company %}
+            {% for company in company %}
+            <div class="col-md-4">
+                <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
+                <h4>{{company.company_name }}</h4>
+                <p class="text-success">
+                    <i class="fas fa-award text-success mb-3"></i>Company</p>
+                <hr>
+                    <i class="fas fa-envelope-open"></i>{{realtor.email}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-md-12">
+                <p>No company Available</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{%endblock content%}
